@@ -4,9 +4,8 @@
 
 #define DHTPIN A1
 #define DHTTYPE DHT11
-
-const int MAX_WATER_LEVEL = 700;
-const int MIN_WATER_LEVEL = 300;
+#define MAX_WATER_LEVEL 700
+#define MIN_WATER_LEVEL 300
 const int waterPin = A0;
 
 LiquidCrystal_I2C lcd(0x27, 16, 2);
@@ -36,34 +35,34 @@ void loop() {
 
   String status = "";
   
-  status += waterStringLCD();
-  status += tempStringLCD();
-  status += humidityStringLCD();
+  status += getStringWater();
+  status += getStringTemp();
+  status += getStringHumidity();
 
   lcd.setCursor(0, 1);
   lcd.print(status);
 
-  displayHumiditySerial();
+  serialDisplayHumidity();
 
   delay(1500);
 }
 
 
-String tempStringLCD() {
+String getStringTemp() {
   char buffer[4];
   sprintf(buffer, " T%02dC", (int)temp);
   return buffer;
 }
 
 
-String humidityStringLCD() {
+String getStringHumidity() {
   char buffer[4];
   sprintf(buffer, " H%02d%%", (int)humidity);
   return buffer;
 }
 
 
-String waterStringLCD() {
+String getStringWater() {
   char buffer[6];  // ensure buffer is large enough
   float area = max(waterLevel, MIN_WATER_LEVEL) - MIN_WATER_LEVEL; 
   float waterPercent = (area / (MAX_WATER_LEVEL - MIN_WATER_LEVEL)) * 100;
@@ -83,7 +82,7 @@ String waterStringLCD() {
 }
 
 
-void displayWaterLevelSerial(bool debug) {
+void serialDisplayWaterLevel(bool debug) {
   float area = max(waterLevel, MIN_WATER_LEVEL) - MIN_WATER_LEVEL; 
   float waterPercent = (area / (MAX_WATER_LEVEL - MIN_WATER_LEVEL)) * 100;
 
@@ -105,6 +104,6 @@ void displayWaterLevelSerial(bool debug) {
 }
 
 
-void displayHumiditySerial() {
+void serialDisplayHumidity() {
   Serial.println("Humidity: " + String(humidity));
 }
