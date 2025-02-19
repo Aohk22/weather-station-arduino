@@ -3,6 +3,8 @@
 Arduino UNO with LoRa module sends processed data to ESP8266.  
 ESP8266 to Blynk for monitoring.  
 
+**Practical Uses**: smarthomes - automated heating/cooling, provide real-time weather data, collect weather patterns overtime...
+
 # Components
 
 ## Required functionality
