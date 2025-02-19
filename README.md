@@ -17,7 +17,7 @@ Notification when weather parameter exceeds a threshhold.
 ## Parts list
 
 - ~~[Arduino UNO](https://hshop.vn/vietduino-uno)~~
-- [Module RF UART Lora SX1278 433Mhz 3000m](https://hshop.vn/mach-thu-phat-rf-lora-uart-sx1278-433mhz3000m) (2)
+- [Module RF SPI Lora SX1278 433MHz](https://hshop.vn/mach-thu-phat-rf-spi-lora-sx1278-433mhz-ra-02-dip) (2)
 - 433MHz antenna (optional?)
 - [ESP8266](https://hshop.vn/mach-mtiny-esp8266-esp-12s-arduino-compatible) 
 - ~~[Water sensor](https://hshop.vn/cam-bien-nuoc-mua-v2-rain-water-sensor) (rainfall sensor)~~
